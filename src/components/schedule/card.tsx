@@ -4,7 +4,7 @@ import Card from '@mui/material/Card'
 // import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
-// import { ICourse } from '../../containers/schedule/ICourse'
+import { ICourse } from '../../containers/schedule/ICourse'
 
 const bull = (
     <Box
@@ -15,7 +15,7 @@ const bull = (
     </Box>
 )
 
-const CardSchedule = ({ course }: any): any =>
+const ScheduleCard = (course: ICourse): any =>
   (
       <Box margin={1}>
       <Card sx={{ minWidth: 275, maxWidth: 350 }}>
@@ -42,4 +42,4 @@ const CardSchedule = ({ course }: any): any =>
       </Box>
   )
 
-export default CardSchedule
+export default ScheduleCard
