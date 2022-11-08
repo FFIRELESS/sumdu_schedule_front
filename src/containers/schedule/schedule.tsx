@@ -40,9 +40,9 @@ const Schedule = function (): ReactElement {
                 return (
                     <div key={id} >
                     <Box marginLeft={1}>
-                        {pair.NAME_WDAY}
+                      <b>{pair.NAME_WDAY}</b>
                         <br/>
-                      <Typography sx={{ mb: 1.5 }} color="white">
+                      <Typography sx={{ mb: 1.5 }}>
                         {pair.DATE_REG}
                       </Typography>
                     </Box>
