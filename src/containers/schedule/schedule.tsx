@@ -39,7 +39,7 @@ const Schedule = function (): ReactElement {
                 date = pair.DATE_REG
                 return (
                     <div key={id} >
-                    <Box marginLeft={1}>
+                    <Box marginLeft={1} marginTop={3}>
                       <b>{pair.NAME_WDAY}</b>
                         <br/>
                       <Typography sx={{ mb: 1.5 }}>
