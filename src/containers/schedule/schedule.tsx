@@ -1,13 +1,11 @@
 import React, { ReactElement } from 'react'
-import { useQuery } from 'react-query'
-import { getScheduleJS } from './crud'
 import { ICourse } from './ICourse'
 import ScheduleCard from '../../components/schedule/card'
 import { Box, Typography } from '@mui/material'
 import { parseDate } from '../../services/dateParser'
+import { IQuery } from './IQuery'
 
-const Schedule = function (): ReactElement {
-  const { isLoading, data } = useQuery('schedule', async () => await getScheduleJS())
+const Schedule = function ({ isLoading, data }: IQuery): ReactElement {
   let id: number = 0
   let date: string = ''
 
@@ -15,18 +13,15 @@ const Schedule = function (): ReactElement {
     date = data[0]?.DATE_REG
 
     data.sort(function (a: { DATE_REG: string, NAME_PAIR: number }, b: { DATE_REG: string, NAME_PAIR: number }) {
-      if (Date.parse(parseDate(a.DATE_REG)) > Date.parse(parseDate(b.DATE_REG))) {
+      if (Date.parse(parseDate(a.DATE_REG)) > Date.parse(parseDate(b.DATE_REG)) || a.NAME_PAIR > b.NAME_PAIR) {
         return 1
-      } if (Date.parse(a.DATE_REG) < Date.parse(b.DATE_REG)) {
-        return -1
-      }
-      if (a.NAME_PAIR > b.NAME_PAIR) {
-        return 1
-      } if (a.NAME_PAIR < b.NAME_PAIR) {
+      } if (Date.parse(a.DATE_REG) < Date.parse(b.DATE_REG) || a.NAME_PAIR < b.NAME_PAIR) {
         return -1
       }
       return 0
     })
+  } else {
+    return <div>* Data loading error *</div>
   }
 
   return (

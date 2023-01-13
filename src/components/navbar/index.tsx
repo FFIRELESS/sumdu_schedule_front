@@ -46,7 +46,7 @@ function ResponsiveAppBar (): ReactElement {
       textDecoration: 'none'
     }}
 >
-    SSU Schedule
+    Schedule
     </Typography>
 
     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
